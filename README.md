@@ -44,3 +44,98 @@ The Spring Container creates objects.
 The container injects required dependencies.
 
 The object does not create its own dependencies.
+
+
+Without DI
+Student student = new Student();
+
+With DI
+
+Spring creates the object and injects dependencies automatically.
+
+🔄 Types of Dependency Injection in Spring
+1️⃣ Constructor Injection
+
+Dependencies are injected through constructor.
+
+public Student(Address address) {
+    this.address = address;
+}
+
+2️⃣ Setter Injection
+
+Dependencies are injected using setter methods.
+
+public void setAddress(Address address) {
+    this.address = address;
+}
+
+🧩 Configuration Methods
+1️⃣ XML-Based Configuration
+<bean id="address" class="com.example.di.Address">
+    <property name="city" value="Hyderabad"/>
+</bean>
+
+<bean id="student" class="com.example.di.Student">
+    <property name="address" ref="address"/>
+</bean>
+
+2️⃣ Annotation-Based Configuration
+@Component
+public class Student {
+
+    @Autowired
+    private Address address;
+}
+
+▶️ How to Run the Project
+
+Clone the repository:
+
+git clone https://github.com/your-username/spring-di-example.git
+
+
+Open project in STS / Eclipse.
+
+Update Maven dependencies:
+
+Right Click Project → Maven → Update Project
+
+
+Run:
+
+Right Click → Run As → Java Application
+
+🧠 Key Concepts Covered
+
+Inversion of Control (IoC)
+
+Spring Container
+
+Bean Lifecycle
+
+Constructor Injection
+
+Setter Injection
+
+Autowiring
+
+@Component, @Autowired annotations
+
+🎯 Advantages of Dependency Injection
+
+✔ Loose Coupling
+✔ Better Testability
+✔ Easier Maintenance
+✔ Reusable Code
+✔ Cleaner Architecture
+
+📖 References
+
+Official Spring Documentation
+
+Spring Boot Reference Guide
+
+👨‍💻 Author
+
+THIRUMALESU GUTURU
